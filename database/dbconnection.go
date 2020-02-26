@@ -6,9 +6,9 @@ import (
 
 var DB *gorm.DB
 
-func init()
-{
+func init(){
 	var err error
+	
 	DB, err = gorm.Open("sqlite3", "test.db")
 	if err != nil {
 		panic(err)
