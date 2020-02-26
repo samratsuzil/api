@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"gitlab.com/astranix/ims-backend-go/app/restapi"
+	"github.com/samratsuzil/api/restapi"
 )
 
 func main(){

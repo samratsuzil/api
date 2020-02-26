@@ -1,2 +1,45 @@
 package models
 
+import "github.com/samratsuzil/api/database"
+
+//GetAllUsers fetch all users
+func GetAllUsers(user *[]User) (err error) {
+	if err = database.GetDB().Find(user).Error; err != nil {
+		return err
+	}
+	return nil
+}
+
+//GetUser Endpoint
+func GetUser(user *User, id uint) (err error) {
+	if err = database.GetDB().First(&user, "id=?", id).Error; err != nil {
+		return err
+	}
+	return nil
+}
+
+//AddNewUser endpoint hit
+func AddNewUser(user *User) (err error) {
+	if err = database.GetDB().Create(&user).Error; err != nil {
+		return err
+	}
+	return nil
+}
+
+//UpdateUser endpoint models
+func UpdateUser(user *User, id uint) (err error) {
+
+	if err = database.GetDB().Model(&user).Where("id=?", id).Updates(&user).Error; err != nil {
+		return err
+	}
+	return nil
+
+}
+
+//DeleteUser Endpoint
+func DeleteUser(id uint) (err error) {
+	if err = database.GetDB().Where("id = ?", id).Delete(&User{}).Error; err != nil {
+		return err
+	}
+	return nil
+}

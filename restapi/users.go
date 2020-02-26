@@ -2,13 +2,9 @@ package restapi
 
 import (
 
-	//nt/http to handle http request
 	"net/http"
-	//string conversion
 	"strconv"
-	//we need to import models so that User can be understood
-	"../models"
-
+	"github.com/samratsuzil/api/models"
 	"github.com/gin-gonic/gin"
 )
 
