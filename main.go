@@ -4,13 +4,25 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/samratsuzil/api/restapi"
+	"github.com/samratsuzil/api/models"
+	"github.com/samratsuzil/api/database"
 )
 
 func main(){
-	fmt.Println("Hello")
+
+	fmt.Println("Connecting to DB")
+	db := database.ConnectDB()
+
+	fmt.Println("Automigrating User")
+	db.AutoMigrate(&models.User{})
+
+	fmt.Println("Defer Close DB Connection")
+	defer db.Close()
 
 	router := gin.Default()
 	r := router.Group("/v1")
 	restapi.InitializeRoutes(r)
-	// router.Run()
+
+	fmt.Println("Running API")
+	router.Run(":8080")
 }
