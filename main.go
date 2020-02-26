@@ -12,5 +12,5 @@ func main(){
 	router := gin.Default()
 	r := router.Group("/v1")
 	restapi.InitializeRoutes(r)
-	router.Run()
+	// router.Run()
 }
