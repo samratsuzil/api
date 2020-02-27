@@ -10,3 +10,12 @@ type User struct {
 	UserName    string
 	Password    string
 }
+
+
+type Book struct {
+	gorm.Model
+	Title   string
+	Publisher string
+	Author string
+	Year string
+}

@@ -10,4 +10,10 @@ func InitializeRoutes(r *gin.RouterGroup) {
 	r.POST("/users", addNewUser)
 	r.PUT("/users/:id", updateUser)
 	r.DELETE("/users/:id", deleteUser)
+
+	r.GET("/books", getAllBooks)
+r.GET("/books/:id", getBook)
+r.POST("/books", addNewBook)
+r.PUT("/books/:id", updateBook)
+r.DELETE("/books/:id", deleteBook)
 }
