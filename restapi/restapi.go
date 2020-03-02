@@ -18,4 +18,10 @@ r.DELETE("/books/:id", deleteBook)
 	r.PUT("/users/:id", updateUser)
 	r.DELETE("/users/:id", deleteUser)
 
+
+	r.GET("/categories", getAllCategories)
+	r.GET("/categories/:id", getCategory)
+	r.POST("/categories", addNewCategory)
+	r.PUT("/categories/:id", updateCategory)
+	r.DELETE("/categories/:id", deleteCategory)
 }

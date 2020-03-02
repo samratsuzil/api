@@ -11,11 +11,18 @@ type User struct {
 	Password    string
 }
 
-
 type Book struct {
 	gorm.Model
 	Title   string
 	Publisher string
 	Author string
 	Year string
+	CategoryID uint
+}
+
+type Category struct {
+	gorm.Model
+	Name   string
+	Description string
+	Books []Book
 }
