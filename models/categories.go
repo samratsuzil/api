@@ -4,6 +4,7 @@ import "github.com/samratsuzil/api/database"
 
 //GetAllCategories fetch all categories
 func GetAllCategories(category *[]Category) (err error) {
+
 	if err = database.ConnectDB().Preload("Book").Find(category).Error; err != nil {
 		return err
 	}

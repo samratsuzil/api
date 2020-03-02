@@ -1,6 +1,7 @@
 package models
 
-import "github.com/jinzhu/gorm"
+import ("github.com/jinzhu/gorm"
+"time")
 
 type User struct {
 	gorm.Model
@@ -11,6 +12,12 @@ type User struct {
 	Password    string
 }
 
+type Category struct {
+	gorm.Model
+	Name   string
+	Description string
+	Book 		[]Book `gorm:ForeignKey"CategoryID"`
+}
 type Book struct {
 	gorm.Model
 	Title   string
@@ -18,11 +25,26 @@ type Book struct {
 	Author string
 	Year string
 	CategoryID uint
+	PublicationID uint
 }
 
-type Category struct {
+type IssuedBook struct {
+	gorm.Model
+	UserID   uint
+	BookID uint
+	IssueDate *time.Time
+}
+type ReturnedBook struct {
+	gorm.Model
+	UserID   uint
+	BookID uint
+	ReturnDate *time.Time
+}
+type Publication struct {
 	gorm.Model
 	Name   string
-	Description string
-	Books []Book
+	Address string
+	Phone string
+	Email string
+	Book []Book
 }
