@@ -13,6 +13,7 @@ func main(){
 	fmt.Println("Connecting to DB")
 	db := database.ConnectDB()
 
+	
 	fmt.Println("Automigrating User")
 	db.AutoMigrate(&models.User{},&models.Book{},&models.Publication{},&models.Category{},&models.IssuedBook{},&models.ReturnedBook{})
 
@@ -25,4 +26,4 @@ func main(){
 
 	fmt.Println("Running API")
 	router.Run(":8080")
-}
+} 
